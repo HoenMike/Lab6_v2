@@ -1,5 +1,6 @@
 package controller;
 
+import dao.CourseDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -21,10 +22,12 @@ public class StudentServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     private StudentDAO studentDAO;
+    private CourseDAO courseDAO;
 
     @Override
     public void init() {
         studentDAO = new StudentDAO();
+        courseDAO = new CourseDAO();
     }
 
     @Override
@@ -38,7 +41,7 @@ public class StudentServlet extends HttpServlet {
         try {
             switch (action) {
                 case "list":
-                    listStudents(request, response);
+                    listStudentsAndCourses(request, response);
                     break;
                 case "view":
                     viewStudent(request, response);
@@ -50,7 +53,7 @@ public class StudentServlet extends HttpServlet {
                     deleteStudent(request, response);
                     break;
                 default:
-                    listStudents(request, response);
+                    listStudentsAndCourses(request, response);
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
@@ -169,6 +172,15 @@ public class StudentServlet extends HttpServlet {
         Student student = studentDAO.getStudent(id);
         request.setAttribute("student", student);
         request.getRequestDispatcher("view/studentForm.jsp").forward(request, response);
+    }
+
+    private void listStudentsAndCourses(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, ServletException, IOException {
+        List<Student> students = studentDAO.getAllStudents();
+        List<Course> courses = courseDAO.getAllCourses();
+        request.setAttribute("students", students);
+        request.setAttribute("courses", courses);
+        request.getRequestDispatcher("view/studentManager.jsp").forward(request, response);
     }
 
     @Override

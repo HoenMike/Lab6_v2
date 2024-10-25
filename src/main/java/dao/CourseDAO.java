@@ -23,9 +23,7 @@ public class CourseDAO {
     public List<Course> getAllCourses() throws SQLException {
         List<Course> courses = new ArrayList<>();
         String sql = "SELECT * FROM course";
-
         try (Connection conn = DBConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
-
             while (rs.next()) {
                 Course course = new Course();
                 course.setId(rs.getInt("CourseID"));
