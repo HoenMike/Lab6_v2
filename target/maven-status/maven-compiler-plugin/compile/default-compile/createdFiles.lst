@@ -1,0 +1,9 @@
+model\Course.class
+model\Student.class
+com\mycompany\Lab6_v2\resources\JakartaEE10Resource.class
+com\mycompany\Lab6_v2\JakartaRestConfiguration.class
+dao\StudentDAO.class
+controller\CourseServlet.class
+dao\CourseDAO.class
+util\DBConnection.class
+controller\StudentServlet.class
