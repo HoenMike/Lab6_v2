@@ -1,11 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %> <%@ taglib
-uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Student and Course List</title>
+		<title>Student Manager</title>
 		<link
 			rel="stylesheet"
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -23,12 +23,14 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	</head>
 	<body>
 		<div class="container mt-5">
+			<!-- Student List Section -->
 			<div class="row mb-4">
 				<div class="col">
 					<h2>Student List</h2>
 				</div>
 			</div>
 
+			<!-- Student Table -->
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -62,6 +64,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 				</tbody>
 			</table>
 
+			<!-- Navigation -->
 			<div class="row mt-4">
 				<div class="col">
 					<a
@@ -69,34 +72,11 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 						class="btn btn-primary"
 						>New Student</a
 					>
-					<a href="${pageContext.request.contextPath}/view/index.jsp" class="btn btn-secondary ml-2"
-						>Homepage</a
+					<a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-secondary ml-2"
+						>Back to Homepage</a
 					>
 				</div>
 			</div>
-
-			<div class="row mt-5">
-				<div class="col">
-					<h2>Course List</h2>
-				</div>
-			</div>
-
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Course ID</th>
-						<th>Course Name</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${courses}" var="course">
-						<tr>
-							<td>${course.id}</td>
-							<td>${course.name}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

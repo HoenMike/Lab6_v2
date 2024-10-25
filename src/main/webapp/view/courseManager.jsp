@@ -1,10 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Course List</title>
+		<title>Course Manager</title>
 		<link
 			rel="stylesheet"
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -22,12 +23,14 @@
 	</head>
 	<body>
 		<div class="container mt-5">
+			<!-- Course List Section -->
 			<div class="row mb-4">
 				<div class="col">
 					<h2>Course List</h2>
 				</div>
 			</div>
 
+			<!-- Course Table -->
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -37,7 +40,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="course" items="${courses}">
+					<c:forEach items="${courses}" var="course">
 						<tr>
 							<td>${course.id}</td>
 							<td>${course.name}</td>
@@ -47,7 +50,7 @@
 									>Edit</a
 								>
 								<a
-									href="${pageContext.request.contextPath}/CourseServlet?action=delete&courseId=${course.id}"
+									href="${pageContext.request.contextPath}/CourseServlet?action=delete&id=${course.id}"
 									onclick="return confirm('Are you sure you want to delete this course?')"
 									>Delete</a
 								>
@@ -57,6 +60,7 @@
 				</tbody>
 			</table>
 
+			<!-- Navigation -->
 			<div class="row mt-4">
 				<div class="col">
 					<a
@@ -64,8 +68,8 @@
 						class="btn btn-primary"
 						>New Course</a
 					>
-					<a href="${pageContext.request.contextPath}/view/index.jsp" class="btn btn-secondary ml-2"
-						>Homepage</a
+					<a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-secondary ml-2"
+						>Back to Homepage</a
 					>
 				</div>
 			</div>

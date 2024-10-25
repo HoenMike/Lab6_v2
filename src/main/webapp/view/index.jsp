@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,6 +13,7 @@
 	<body>
 		<div class="container mt-5">
 			<h1 class="mb-4">Course Registration Demo</h1>
+			<!-- Form to view student details -->
 			<form action="${pageContext.request.contextPath}/StudentServlet" method="post">
 				<input type="hidden" name="action" value="view" />
 				<div class="form-row align-items-end">
@@ -21,20 +22,25 @@
 						<input type="text" class="form-control" id="studentID" name="studentID" required />
 					</div>
 					<div class="form-group col-md-2">
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<button type="submit" class="btn btn-primary">View Details</button>
 					</div>
 				</div>
 			</form>
 
-			<h2>Manager</h2>
-			<a
-				href="${pageContext.request.contextPath}/StudentServlet?action=list"
-				class="btn btn-primary mr-2"
-				>Students Manager</a
-			>
-			<a href="${pageContext.request.contextPath}/CourseServlet?action=list" class="btn btn-primary"
-				>Courses Manager</a
-			>
+			<!-- Management Links -->
+			<h2 class="mt-4">Management Options</h2>
+			<div class="mt-3">
+				<a
+					href="${pageContext.request.contextPath}/StudentServlet?action=list"
+					class="btn btn-primary mr-2"
+					>Students Manager</a
+				>
+				<a
+					href="${pageContext.request.contextPath}/CourseServlet?action=list"
+					class="btn btn-primary"
+					>Courses Manager</a
+				>
+			</div>
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

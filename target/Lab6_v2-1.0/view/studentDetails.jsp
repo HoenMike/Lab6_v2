@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,17 +15,19 @@
 		<div class="container mt-5">
 			<div class="card">
 				<div class="card-body">
-					<h2 class="card-title mb-4">Student's Details</h2>
+					<h2 class="card-title mb-4">Student Details</h2>
 
+					<!-- Student Information -->
 					<div class="row mb-4">
 						<div class="col-md-6">
 							<p><strong>Student ID:</strong> ${student.id}</p>
-							<p><strong>Student name:</strong> ${student.name}</p>
+							<p><strong>Student Name:</strong> ${student.name}</p>
 						</div>
 					</div>
 
+					<!-- Course Registration Form -->
 					<div class="mb-4">
-						<h3>Select Course</h3>
+						<h3>Add New Course</h3>
 						<form
 							action="${pageContext.request.contextPath}/StudentServlet"
 							method="post"
@@ -39,12 +42,13 @@
 									</c:forEach>
 								</select>
 							</div>
-							<button type="submit" class="btn btn-primary">Add</button>
+							<button type="submit" class="btn btn-primary">Add Course</button>
 						</form>
 					</div>
 
+					<!-- Registered Courses Table -->
 					<div>
-						<h3>Registered Courses:</h3>
+						<h3>Registered Courses</h3>
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -76,8 +80,9 @@
 						</table>
 					</div>
 
+					<!-- Navigation -->
 					<div class="mt-4">
-						<a href="${pageContext.request.contextPath}/view/index.jsp" class="btn btn-secondary"
+						<a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-secondary"
 							>Back to Homepage</a
 						>
 					</div>
