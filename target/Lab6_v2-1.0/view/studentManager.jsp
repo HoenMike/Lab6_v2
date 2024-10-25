@@ -87,6 +87,10 @@
 						<div class="modal-body">
 							<input type="hidden" name="action" value="add" />
 							<div class="form-group">
+								<label for="newStudentId">Student ID:</label>
+								<input type="text" class="form-control" id="newStudentId" name="id" required />
+							</div>
+							<div class="form-group">
 								<label for="studentName">Student Name:</label>
 								<input type="text" class="form-control" id="studentName" name="name" required />
 							</div>
@@ -113,7 +117,10 @@
 					<form action="${pageContext.request.contextPath}/StudentServlet" method="post">
 						<div class="modal-body">
 							<input type="hidden" name="action" value="update" />
-							<input type="hidden" name="id" id="editStudentId" />
+							<div class="form-group">
+								<label for="editStudentId">Student ID:</label>
+								<input type="text" class="form-control" id="editStudentId" name="id" required />
+							</div>
 							<div class="form-group">
 								<label for="editStudentName">Student Name:</label>
 								<input type="text" class="form-control" id="editStudentName" name="name" required />
