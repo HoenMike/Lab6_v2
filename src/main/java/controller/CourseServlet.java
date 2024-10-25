@@ -120,7 +120,7 @@ public class CourseServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("courseId"));
         Course course = courseDAO.getCourse(id);
         request.setAttribute("course", course);
-        request.getRequestDispatcher("view/courseDetails.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/courseDetails.jsp").forward(request, response);
     }
 
     private void addCourse(HttpServletRequest request, HttpServletResponse response)
@@ -155,7 +155,7 @@ public class CourseServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("courseId"));
         Course course = courseDAO.getCourse(id);
         request.setAttribute("course", course);
-        request.getRequestDispatcher("courseForm.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/courseForm.jsp").forward(request, response);
     }
 
     /**

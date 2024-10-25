@@ -1,10 +1,10 @@
 package controller;
 
-import dao.CourseDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+import dao.CourseDAO;
 import dao.StudentDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -90,7 +90,7 @@ public class StudentServlet extends HttpServlet {
             throw new ServletException(ex);
         } catch (NumberFormatException ex) {
             request.setAttribute("error", "Invalid student ID format");
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/index.jsp").forward(request, response);
         }
     }
 

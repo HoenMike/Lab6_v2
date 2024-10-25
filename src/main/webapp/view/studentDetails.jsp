@@ -82,7 +82,7 @@
 
 					<!-- Navigation -->
 					<div class="mt-4">
-						<a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-secondary"
+						<a href="${pageContext.request.contextPath}/view/index.jsp" class="btn btn-secondary"
 							>Back to Homepage</a
 						>
 					</div>
